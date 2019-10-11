@@ -1,0 +1,16 @@
+W3CIISLog
+| where Computer == "Demo-WINVM1.contoso.local" 
+| where TimeGenerated > startofday(datetime("2019-10-04")) and TimeGenerated < endofday(datetime("2019-10-05")) 
+| project scStatus, TimeGenerated 
+| summarize count() by TimeGenerated 
+| summarize ['RPS']=avg(count_) by bin(TimeGenerated, 1m) 
+| join (
+    Perf
+        | where Computer == "Demo-WINVM1.contoso.local"
+        | where ObjectName == "Processor" 
+        | where CounterName == "% Processor Time" 
+        | where InstanceName == "_Total" 
+        | project TimeGenerated , CounterValue 
+        | summarize ['%CPU']=avg(CounterValue) by bin(TimeGenerated, 1m)
+) on TimeGenerated
+| render timechart 
