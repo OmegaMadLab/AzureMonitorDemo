@@ -10,6 +10,6 @@ In this repository you can find some scripts I used to demonstrate usage of Azur
 For some **Azure Functions** I used in this context, you can have a look to this **[repo](https://github.com/OmegaMadLab/StartingWithPoshAzureFunctions)**.
 
 In **Slides** folder you can also find deck I used during presentations.
-For a full recording of session, just look at my YouTube channel:
+For a full recording of sessions, just look at my YouTube channel:
 
 - **[Azure Saturday Pordenone 2019](https://youtu.be/ifHJATNmC9k)**, italian language 
